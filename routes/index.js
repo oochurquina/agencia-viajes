@@ -2,34 +2,31 @@ import express from 'express'
 
 const router = express.Router();
 
-<<<<<<< HEAD
-router.get('/',(request,response,next)=>{
-    response.send('hola mundo');
-    next();
-})
-
-router.get('/nosotros',(request,response,next)=>{
-    response.render('nosotros');
-    next();
-})
-
-router.get('/contacto',(request,response,next)=>{
-    response.send('Contacto') 
-})
-
-=======
 router.get('/', (request, response, next) => {
-    response.render('inicio');
+    response.render('inicio',{
+        pagina:'Inicio'
+    });
     next();
 })
 
 router.get('/nosotros', (request, response, next) => {
     const viajes = "viaje a alemania"
     response.render('nosotros', {
-        viajes
+        pagina:'Nosotros'
     });
     next();
 })
 
->>>>>>> 2bf05bee1abe204037dcdfec4b1fd6231422be1f
+router.get('/viajes',(req,res,next)=>{
+    res.render('viajes',{
+        pagina:'Viajes'
+    });
+    next()
+})
+router.get('/testimoniales',(req,res,next)=>{
+    res.render('testimoniales',{
+        pagina:'Testimoniales'
+    })
+})
+
 export default router;
