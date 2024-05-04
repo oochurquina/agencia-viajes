@@ -1,18 +1,12 @@
 import express from 'express'
+import { pageDetalleViaje, pageInicio, pageNosotros, pageTestimoniales, pageViajes } from '../controller/index.js';
 
 const router = express.Router();
 
-router.get('/', (request, response, next) => {
-    response.render('inicio');
-    next();
-})
-
-router.get('/nosotros', (request, response, next) => {
-    const viajes = "viaje a alemania"
-    response.render('nosotros', {
-        viajes
-    });
-    next();
-})
+router.get('/', pageInicio)
+router.get('/nosotros', pageNosotros)
+router.get('/viajes', pageViajes)
+router.get('/viajes/:viaje', pageDetalleViaje)
+router.get('/testimoniales', pageTestimoniales)
 
 export default router;

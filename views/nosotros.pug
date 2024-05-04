@@ -1,3 +1,26 @@
-
+extends ./layout/index
 block contenido
-    p Nosotros
+    main.container.mt-5 
+        .row 
+            .col-md-5 
+                img(src="/img/nosotros.jpg", alt="nosotros",class='img-fluid')
+            .col-md-7 
+                h2= pagina
+                blockquote Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse tempus, diam sit amet pharetra consequat, dolor velit elementum magna, sed dignissim sapien risus sit amet dolor. Etiam metus risus, consequat eu maximus in, posuere a metus. Phasellus vulputate finibus laoreet. Quisque 
+                p Morbi facilisis tempor nulla quis placerat. Nulla facilisi. Nullam ultrices nunc vel urna consequat, eu volutpat nulla dictum. Nullam scelerisque tellus ac pulvinar tincidunt. Donec nec elit 
+                p Suspendisse mi ante, eleifend non interdum quis, pellentesque vel metus. Morbi efficitur augue leo, ac volutpat ligula luctus nec. Donec a lacinia tortor. Quisque et tempus nibh. Mauris eget tellus non velit suscipit accumsan. Nulla in urna volutpat, consectetur sapien efficitur, fermentum mi. Donec ultricies elit eget blandit posuere. Cras tempus risus et malesuada tincidunt. Nam id 
+    .listado-iconos 
+        .container.mt-5.py-5.text-center 
+            .row 
+                .col-md-4 
+                    img(src="img/icono_seguridad.svg", alt="", class="img-fluid mb-4")
+                    h2.mb-4 Seguridad 
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, cupiditate quo. Perspiciatis
+                .col-md-4 
+                    img(src="img/icono_precio.svg", alt="precio",class="img-fluid mb-4")
+                    h2.mb-4 Mejores Precios
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, cupiditate quo. Perspiciatis
+                .col-md-4 
+                    img(src="img/icono_destinos.svg", alt="destinos", class="img-fluid mb-4")
+                    h2.mb-4 Mejores Destinos 
+                    p Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, cupiditate quo. Perspiciatis
