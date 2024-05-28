@@ -1,9 +1,23 @@
 import { Viaje } from "../models/Viaje.js";
+import { Testimonial } from "../models/testimoniales.js";
 
-const pageInicio = (req, res) => {
-    res.render('inicio', {
-        pagina: 'Inicio'
-    });
+const pageInicio = async(req, res) => {
+    const promiseDb= [];
+    promiseDb.push(Viaje.findAll({limit:3}));
+    promiseDb.push(Testimonial.findAll({limit:3}));
+
+    try {
+        const result = await Promise.all(promiseDb);
+        const [viajes,testimoniales] = result;
+        res.render('inicio', {
+            pagina: 'Inicio',
+            clase: 'home',
+            viajes,
+            testimoniales
+        });
+    } catch (error) {
+        console.log(error);
+    }
 }
 
 const pageNosotros = (request, response, next) => {
@@ -24,10 +38,16 @@ const pageViajes = async(req, res, next) => {
     next();
 }
 
-const pageTestimoniales = (req, res, next) => {
-    res.render('testimoniales', {
-        pagina: 'Testimoniales'
-    })
+const pageTestimoniales = async(req, res, next) => {
+    try {
+        const testimoniales = await Testimonial.findAll();
+        res.render('testimoniales', {
+            pagina: 'Testimoniales',
+            testimoniales
+        })
+    } catch (error) {
+        console.log(error);
+    }
     next();
 }
 
@@ -44,6 +64,8 @@ const pageDetalleViaje = async(req, res, next) => {
         console.log(error)
     }
 }
+
+
 export {
     pageInicio,
     pageNosotros,

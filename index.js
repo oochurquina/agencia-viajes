@@ -17,6 +17,8 @@ app.use((req, res, next) => {
         res.locals.nameSite = 'Agencia de viajes'
         next();
     })
+// agregar body parser para leer los datos del formulario
+app.use(express.urlencoded({extended:true}));
     // definir carpeta Public
 app.use(express.static('public'))
 app.use('/', router)
